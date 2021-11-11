@@ -58,9 +58,10 @@ def _preprocess_data(data):
     # ---------------------------------------------------------------
 
     # ----------- Replace this code with your own preprocessing steps --------
-    predict_vector = feature_vector_df[['Madrid_wind_speed','Bilbao_rain_1h','Valencia_wind_speed']]
+    predict_vector = feature_vector_df[['Valencia_pressure', 'Bilbao_rain_1h', 'Valencia_wind_speed', 'Seville_humidity', 'Madrid_humidity', 'Bilbao_clouds_all', 'Bilbao_wind_speed', 'Madrid_temp_max', 'Barcelona_temp']]
     # ------------------------------------------------------------------------
-
+    predict_vector['Valencia_pressure'] = predict_vector['Valencia_pressure'].fillna(0)
+  
     return predict_vector
 
 def load_model(path_to_model:str):
